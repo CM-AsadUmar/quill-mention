@@ -5,12 +5,9 @@ const Embed = Quill.import("blots/embed");
 class MentionBlot extends Embed {
   static create(data) {
     const node = super.create();
-    const denotationChar = document.createElement("span");
-    denotationChar.className = "ql-mention-denotation-char";
-    denotationChar.innerHTML = data.denotationChar;
-    node.appendChild(denotationChar);
+    const denotationChar = document.createElement("a");
     node.innerHTML += data.value;
-    return MentionBlot.setDataValues(node, data);
+    return node;
   }
 
   static setDataValues(element, data) {
